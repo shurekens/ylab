@@ -24,3 +24,15 @@ def int32_to_ip(int32):
 assert int32_to_ip(2154959208) == "128.114.17.104"
 assert int32_to_ip(0) == "0.0.0.0"
 assert int32_to_ip(2149583361) == "128.32.10.1"
+
+#Task №3
+def zeros(n):
+  x = 5
+  result = 0
+  while x < n:
+    result += (n // x)
+    x *= 5
+  return result
+assert zeros(0) == 0
+assert zeros(6) == 1
+assert zeros(30) == 7
