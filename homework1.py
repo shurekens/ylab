@@ -36,3 +36,18 @@ def zeros(n):
 assert zeros(0) == 0
 assert zeros(6) == 1
 assert zeros(30) == 7
+
+#Task №4
+from itertools import combinations
+
+def bananas(s) -> set:
+  word = "banana"
+  result = set()
+  for item in combinations(range(len(s)), len(s) - len(word)):
+    list_item = list(s)
+    for i in item:
+      list_item[i] = "-"
+    res = "".join(list_item)
+    if res.replace("-", "") == word:
+      result.add(res)
+  return result
