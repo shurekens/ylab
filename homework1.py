@@ -51,3 +51,46 @@ def bananas(s) -> set:
     if res.replace("-", "") == word:
       result.add(res)
   return result
+
+#Task №5
+def primfacs(n):
+  i = 2
+  primfac = []
+  while i * i <= n:
+    while n % i == 0:
+      primfac.append(i)
+      n = int(n / i)
+    i = i + 1
+  if n > 1:
+    primfac.append(n)
+  return primfac
+
+def count_find_num(primesL, limit):
+  numbers_list = []
+  for i in range(1, limit + 1):
+    if set(primfacs(i)) == set(primesL):
+      numbers_list.append(i)
+  if len(numbers_list) == 0:
+    return []
+  return [len(numbers_list), max(numbers_list)]
+
+
+primesL = [2, 3]
+limit = 200
+assert count_find_num(primesL, limit) == [13, 192]
+
+primesL = [2, 5]
+limit = 200
+assert count_find_num(primesL, limit) == [8, 200]
+
+primesL = [2, 3, 5]
+limit = 500
+assert count_find_num(primesL, limit) == [12, 480]
+
+primesL = [2, 3, 5]
+limit = 1000
+assert count_find_num(primesL, limit) == [19, 960]
+
+primesL = [2, 3, 47]
+limit = 200
+assert count_find_num(primesL, limit) == []
