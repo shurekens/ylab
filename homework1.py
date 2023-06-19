@@ -33,6 +33,7 @@ def zeros(n):
     result += (n // x)
     x *= 5
   return result
+  
 assert zeros(0) == 0
 assert zeros(6) == 1
 assert zeros(30) == 7
@@ -51,6 +52,14 @@ def bananas(s) -> set:
     if res.replace("-", "") == word:
       result.add(res)
   return result
+  
+assert bananas("banann") == set()
+assert bananas("banana") == {"banana"}
+assert bananas("bbananana") == {"b-an--ana", "-banana--", "-b--anana", "b-a--nana", "-banan--a",
+                     "b-ana--na", "b---anana", "-bana--na", "-ba--nana", "b-anan--a",
+                     "-ban--ana", "b-anana--"}
+assert bananas("bananaaa") == {"banan-a-", "banana--", "banan--a"}
+assert bananas("bananana") == {"ban--ana", "ba--nana", "bana--na", "b--anana", "banana--", "banan--a"}
 
 #Task №5
 def primfacs(n):
